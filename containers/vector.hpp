@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:08 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/19 15:34:11 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/21 12:35:58 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ namespace ft
                     _allocator.construct(ptr+i , _array[i]);
                     _allocator.destroy(_array + i);
                 }
-                _allocator.dealocate(_array , _capacity);
+                _allocator.deallocate(_array , _capacity);
                 _array  = ptr;
                 _capacity = n;
             }

@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:15 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/19 15:34:16 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/21 08:47:59 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,26 +87,26 @@ namespace ft
 				return(tmp);
 			}
 
-			random_access_iterator	&operator+=	(const difference_type &offset)
+			random_access_iterator	&operator+=	(const difference_type &n)
 			{
-				_itr += offset;
+				_itr += n;
 				return (*this);
 			}
-			random_access_iterator	&operator-=	(const difference_type &offset)
+			random_access_iterator	&operator-=	(const difference_type &n)
 			{
-				_itr -= offset;
+				_itr -= n;
 				return (*this);
 			}
-			random_access_iterator	operator+	(difference_type offset) const
+			random_access_iterator	operator+	(difference_type n) const
 			{
 				random_access_iterator tmp(*this);
-				tmp += offset;
+				tmp += n;
 				return (tmp);
 			}
-			random_access_iterator	operator-	(difference_type offset) const
+			random_access_iterator	operator-	(difference_type n) const
 			{
 				random_access_iterator tmp(*this);
-				tmp -= offset;
+				tmp -= n;
 				return (tmp);
 			}
 

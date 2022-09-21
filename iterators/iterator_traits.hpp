@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:13 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/19 15:34:14 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/20 11:19:42 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ namespace ft
 			typedef ptrdiff_t						difference_type;
 			typedef T								value_type;
 			typedef T*								pointer;
+
 			typedef T&								reference;
 			typedef random_access_iterator_tag		iterator_category;
 	};
@@ -71,6 +72,12 @@ namespace ft
 			typedef Reference	reference;
 			typedef Category	iterator_category;
 	};
+
+
+
+
+
+
 
 namespace detail {
 
@@ -121,5 +128,8 @@ typename ft::iterator_traits<It>::difference_type
 	return detail::do_distance(first, last, typename ft::iterator_traits<It>::iterator_category());
 }
 
+
+
 } // namespace ft
+
 
