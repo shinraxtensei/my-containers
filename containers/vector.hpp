@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:08 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/21 12:35:58 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/26 08:55:28 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 #include "../iterators/random_access_iterator.hpp"
 #include "../iterators/reverse_iterator.hpp"
 
-#include "../type_traits&others/enable_if.hpp"
-#include "../type_traits&others/is_ingeral.hpp"
-#include "../type_traits&others/lexicographical&&comp.hpp"
-#include "../type_traits&others/pair.hpp"
+#include "../type_traits.../enable_if.hpp"
+#include "../type_traits.../is_ingeral.hpp"
+#include "../type_traits.../lexicographical&&comp.hpp"
+#include "../type_traits.../pair.hpp"
 
 namespace ft
 {
@@ -124,11 +124,11 @@ namespace ft
 
             iterator end(void)
             {
-                return (iterator(_array + _size));
+                return (iterator(_array + _size ));
             }
             const_iterator end(void) const
             {
-                return (const_iterator(_array + _size));
+                return (const_iterator(_array + _size ));
             };
 
             reverse_iterator rbegin()
@@ -359,7 +359,7 @@ namespace ft
 
                 for(size_type i = start_index; i < end_index; i++)
                     _allocator.destroy(_array + i);
-                offset = ft::distance(first - last);
+                offset = ft::distance(first , last);
                 for(size_type i = end_index; i < _size ; i++)
                 {
                     _allocator.construct(&_array[i - offset] , _array[i]);
@@ -425,7 +425,7 @@ namespace ft
             {
                 if (lhs.size() != rhs.size())
                     return (false);
-                return (ft::equal(lhs.begin(), lhs.end(), rhs.begin));
+                return (ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
             }
 
             template <class T , class Alloc>
@@ -437,7 +437,7 @@ namespace ft
             template <class T , class Alloc>
             bool operator<(const vector<T , Alloc>&lhs, const vector<T , Alloc>&rhs)
             {
-                return (ft::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end));
+                return (ft::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end()));
             }
             template <class T, class Alloc>
             bool operator<= (const vector<T,Alloc>& lhs, const vector<T,Alloc>& rhs)
