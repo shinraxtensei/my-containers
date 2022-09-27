@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:20 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/24 17:45:24 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/26 16:09:07 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -584,6 +584,8 @@ void	vectors_test_str()
 	vect_erase_one_elem_str<ft::vector<std::string> >(ft_vector);
 }
 
+#include "./containers/RB_tree.hpp"
+
 int     main()
 {
 	srand((unsigned int)time(0));
@@ -592,6 +594,6 @@ int     main()
 	vectors_test_str();
 	// stack_tests();
 	// map_tests();
-		
+
 	return (0);
 }
