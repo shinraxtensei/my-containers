@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <iostream>
@@ -9,7 +8,6 @@
 
 namespace ft
 {
-
 	#define BLACK false
 	#define RED true
 
@@ -123,6 +121,7 @@ namespace ft
 			DeleteTree(this->root);
 			DestroyNode(this->nil);
 		}
+
 
 
 
@@ -267,7 +266,7 @@ namespace ft
 		 * insert node to tree
 		 */
 
-		void	RBInsert(NodePointer node)
+		void	InsertNode(NodePointer node)
 		{
 			NodePointer	child_cpy;
 			NodePointer	child;
@@ -293,26 +292,26 @@ namespace ft
 			node->left = this->nil;
 			node->right = this->nil;
 			node->color = RED;
-			RBInsertFixup(node);
+			InsertFixup(node);
 		}
 
 		/**
 		 * Create a new node from value and insert it to tree
 		 */
 
-		void	RBInsert(const KeyType &key)
+		void	InsertNode(const KeyType &key)
 		{
 			NodePointer node;
 
 			node = CreateNode(key);
-			RBInsert(node);
+			InsertNode(node);
 		}
 
 		/**
 		 * Check if key is in the tree
 		 */
 
-		bool	BTKeyExists(const KeyType &key) const
+		bool	KeyExists(const KeyType &key) const
 		{
 			NodePointer	node;
 
@@ -324,7 +323,7 @@ namespace ft
 		 * Get node corresponding to key
 		 */
 
-		NodePointer	BTGetNode(const KeyType &key)
+		NodePointer	GetNode(const KeyType &key)
 		{
 			NodePointer	node;
 
@@ -336,7 +335,7 @@ namespace ft
 		 * Clear the tree
 		 */
 
-		void	BTClear(void)
+		void	Clear(void)
 		{
 			DeleteTree(this->root);
 			this->root = this->nil;
@@ -346,7 +345,7 @@ namespace ft
 		 * Swap two trees
 		 */
 
-		void	BTSwap(RBTree &tree)
+		void	Swap(RBTree &tree)
 		{
 			std::swap(root, tree.root);
 			std::swap(nil, tree.nil);
@@ -359,7 +358,7 @@ namespace ft
 		 * Is the tree empty?
 		 */
 
-		bool	BTIsEmpty(void) const
+		bool	IsEmpty(void) const
 		{
 			return (this->root == this->nil);
 		}
@@ -377,7 +376,7 @@ namespace ft
 		 * Maximum number of nodes in the tree
 		 */
 
-		size_type	BTGetMaxSize(void) const
+		size_type	GetMaxSize(void) const
 		{
 			return (this->allocator.max_size());
 		}
@@ -386,7 +385,7 @@ namespace ft
 		 * Lower bound of the tree
 		 */
 
-		NodePointer	BTLowerBound(KeyType key)
+		NodePointer	LowerBound(KeyType key)
 		{
 			NodePointer	node = this->root;
 			NodePointer best = this->nil;
@@ -409,7 +408,7 @@ namespace ft
 		 * Upper bound of the tree
 		 */
 
-		NodePointer	BTUpperBound(KeyType key)
+		NodePointer	UpperBound(KeyType key)
 		{
 			NodePointer	node = this->root;
 			NodePointer best = this->nil;
@@ -432,7 +431,7 @@ namespace ft
 		 * Get the nil node
 		 */
 
-		NodePointer	RBGetNil(void) const
+		NodePointer	GetNil(void) const
 		{
 			return (this->nil);
 		}
@@ -441,7 +440,7 @@ namespace ft
 		 * Get the root node
 		 */
 
-		NodePointer	RBGetRoot(void) const
+		NodePointer	GetRoot(void) const
 		{
 			return (this->root);
 		}
@@ -606,7 +605,7 @@ namespace ft
 		 * Helper function to insert a node to the tree
 		 */
 
-		void	RBInsertFixup(NodePointer node)
+		void	InsertFixup(NodePointer node)
 		{
 			NodePointer parents_sibling;
 
@@ -742,5 +741,5 @@ namespace ft
 	bool operator==(const RBTree& lhs, const RBTree& rhs){
 		return (lhs.GetSize() == rhs.GetSize() && ft::equal(lhs.begin(), lhs.end(), rhs.begin()));
 	}
-} // namespace ft
 
+}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.cpp                                           :+:      :+:    :+:   */
+/*   unit_tests.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:20 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/26 16:09:07 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/29 12:31:25 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void    print_vector(T& cont)
 }
 
 template <class Container, class T>
-void vect_push_back_one_element(Container c, T toInsert)
+void vect_push_back_one_element(Container c, T toInsertNode)
 {
-	std::cout << "push_back one element:" << toInsert << std::endl;
+	std::cout << "push_back one element:" << toInsertNode << std::endl;
 	int start_s = clock();
-	c.push_back(toInsert);
+	c.push_back(toInsertNode);
 	int stop_s = clock();
 	std::cout << "vector content : " << std::endl;
 	print_vector(c);

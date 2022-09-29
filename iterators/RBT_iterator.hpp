@@ -154,7 +154,7 @@ namespace ft
 		// 	++tmp;
 		// 	++n;
 		// }
-		for (; tmp != last ; ++tmp ; ++n);
+		for (; tmp != last ; ++tmp , ++n);
 		return (n);
 	}
 } // namespace ft
