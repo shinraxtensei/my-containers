@@ -24,7 +24,7 @@ namespace ft
 		TreeNode(void) :
 			color(BLACK),
 			is_nil(false),
-//			key(NULL),
+
 			left(NULL),
 			right(NULL),
 			parent(NULL)

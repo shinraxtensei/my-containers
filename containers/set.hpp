@@ -27,12 +27,12 @@ namespace ft
 		    typedef typename Allocator::template rebind<ft::TreeNode<value_type> >::other node_allocator_type;
 		    typedef RBTree<value_type, value_compare, node_allocator_type> rbtree;
            
-            typedef typename RBTree::iterator iterator;
-            typedef typename RBTree::const_iterator const_iterator;
-            typedef typename RBTree::reverse_iterator reverse_iterator;
-            typedef typename RBTree::const_reverse_iterator const_reverse_iterator;
+            typedef typename rbtree::iterator iterator;
+            typedef typename rbtree::const_iterator const_iterator;
+            typedef typename rbtree::reverse_iterator reverse_iterator;
+            typedef typename rbtree::const_reverse_iterator const_reverse_iterator;
             typedef std::size_t size_type;
-            typedef iterator_traits::difference_type difference_type;
+            typedef std::ptrdiff_t difference_type;
 
 		private :
 
@@ -50,7 +50,7 @@ namespace ft
         set (InputIterator first, InputIterator last , const key_compare &comp = key_compare(), const allocator_type &alloc = allocator_type())
         : _allocator(alloc), _key_compare(comp), _value_compare(comp) , _rbtree(_value_compare)
         {
-            this->inset(first, last);
+            this->insert(first, last);
         }
 
 
@@ -71,6 +71,7 @@ namespace ft
                 this->_value_compare = rhs._value_compare;
                 this->_rbtree = rhs._rbtree;
             }
+            return (*this);
         }
 
 
@@ -80,11 +81,11 @@ namespace ft
         iterator end(void) {return (this->_rbtree.end());}
         const_iterator end(void)const {return (this->_rbtree.end());}
 
-        reverse_iterator rbegin(void) {return (this->rbegin());}
-        const_reverse_iterator rbegin(void) cosnt {return (this->rbegin());}
+        reverse_iterator rbegin(void) {return (this->_rbtree.rbegin());}
+        const_reverse_iterator rbegin(void) const {return (this->_rbtree.rbegin());}
 
-        reverse_iterator rend(void) {return (this->rend());}
-        const_reverse_iterator rend(void) cosnt {return (this->rend());}
+        reverse_iterator rend(void) {return (this->_rbtree.rend());}
+        const_reverse_iterator rend(void) const {return (this->_rbtree.rend());}
 
 
 
@@ -166,8 +167,8 @@ namespace ft
             this->_rbtree.Clear();
         }
     
-        key_compare key_comp(void) const {(return this->_key_compare) ;}
-        value_compare value_comp(void) const {(return this->_value_compare)};
+        key_compare key_comp(void) const {return (this->_key_compare) ;}
+        value_compare value_comp(void) const {return (this->_value_compare);}
 
 
 
@@ -202,81 +203,74 @@ namespace ft
         }
 
 
-        iterator lowerbound(const key_type& key)    {return (iterator(this->_rbtree.LowerBound(key), _rbtree.GetRoot()));}
-        const_iterator lowerbound(const key_type& key)const  {return (const_iterator(this->_rbtree.LowerBound(key), _rbtree.GetRoot()));}
+        iterator lower_bound(const key_type& key)    {return (iterator(this->_rbtree.LowerBound(key), _rbtree.GetRoot()));}
+        const_iterator lower_bound(const key_type& key)const  {return (const_iterator(this->_rbtree.LowerBound(key), _rbtree.GetRoot()));}
 
-        iterator upperbound(const key_type& key)    {return (iterator(this->_rbtree.UpperBound(key), _rbtree.GetRoot()));}   
-        const_iterator upperbound(const key_type& key)const    {return (const_iterator(this->_rbtree.UpperBound(key), _rbtree.GetRoot()));}   
+        iterator upper_bound(const key_type& key)    {return (iterator(this->_rbtree.UpperBound(key), _rbtree.GetRoot()));}   
+        const_iterator upper_bound(const key_type& key)const    {return (const_iterator(this->_rbtree.UpperBound(key), _rbtree.GetRoot()));}   
 
     
 
         ft::pair<iterator, iterator> equal_range(const key_type& key)
         {
-            return (ft::make_pair(this->lowerbound(key) , this->upperbound(key)));
+            return (ft::make_pair(this->lower_bound(key) , this->upper_bound(key)));
 
         }
 
         ft::pair<const_iterator, const_iterator> equal_range(const key_type& key) const
         {
-            return (ft::make_pair(this->lowerbound(key) , this->upperbound(key)));
+            return (ft::make_pair(this->lower_bound(key) , this->upper_bound(key)));
 
         }
 
-        allocator_type get_allocator() const    {(return this->_allocator);}
+        allocator_type get_allocator() const    {return (this->_allocator);}
 
 
-        template <class _Key,class _Compare , class _Alloc>
-        friend bool operator== (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs);
+   		template<class _Key, class _Compare, class _Alloc>
+		friend bool operator==(const set<_Key, _Compare, _Alloc> & lhs,
+				const set<_Key, _Compare, _Alloc>& rhs);
 
-        template <class _Key,class _Compare , class _Alloc>
-        friend bool operator< (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs);
-
+		template<class _Key, class _Compare, class _Alloc>
+		friend bool operator<(const set<_Key, _Compare, _Alloc> & lhs,
+				const set<_Key, _Compare, _Alloc>& rhs);
     };
 
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator== (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return ((lhs._rbtree == rhs._rbtree) ;)
-    }
 
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator!= (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return !(lhs == rhs);
-    }
-
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator< (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return (lhs._rbtree <  rhs._rbtree);
-    }
-
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator> (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return (rhs._rbtree <  lhs._rbtree);
-    }
-
-
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator<= (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return !(lhs > rhs);
-    }
-
-    template <class _Key,class _Compare , class _Alloc>
-    bool operator>= (const set<_Key , _Compare , _Alloc> & lhs, const set<_Key , _Compare , _Alloc> & rhs)
-    {
-        return !(lhs < rhs);
-    }
 
 
 	template<class Key, class Compare, class Alloc>
-	void swap(set<Key, Compare, Alloc> & lhs, set<Key, Compare, Alloc> & rhs)
-    {
-			lhs.swap(rhs);
+	bool operator==(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return (lhs._rbtree == rhs._rbtree);
 	}
 
+	template<class Key, class Compare, class Alloc>
+	bool operator!=(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return !(lhs == rhs);
+	}
 
+	template<class Key, class Compare, class Alloc>
+	bool operator<(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return (lhs._rbtree < rhs._rbtree);
+	}
+
+	template<class Key, class Compare, class Alloc>
+	bool operator>(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return (rhs < lhs);
+	}
+
+	template<class Key, class Compare, class Alloc>
+	bool operator<=(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return !(lhs > rhs);
+	}
+
+	template<class Key, class Compare, class Alloc>
+	bool operator>=(const set<Key, Compare, Alloc> & lhs, const set<Key, Compare, Alloc> & rhs){
+			return !(lhs < rhs);
+	}
+
+	template<class Key, class Compare, class Alloc>
+	void swap(set<Key, Compare, Alloc> & lhs, set<Key, Compare, Alloc> & rhs){
+			lhs.swap(rhs);
+	}
     
 };

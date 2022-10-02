@@ -3,6 +3,9 @@
 
 #include "./iterator_traits.hpp"
 
+
+
+
 namespace ft
 {
 	template<class T>
@@ -149,12 +152,11 @@ namespace ft
 		typename Iterator::difference_type	n = 0;
 		Iterator	tmp(first);
 
-		// while (tmp != last)
-		// {
-		// 	++tmp;
-		// 	++n;
-		// }
-		for (; tmp != last ; ++tmp , ++n);
+		while (tmp != last)
+		{
+			++tmp;
+			++n;
+		}
 		return (n);
 	}
 } // namespace ft

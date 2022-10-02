@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:15 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/24 17:41:08 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/09/29 13:45:18 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,9 @@ namespace ft
 			bool	operator>=(const random_access_iterator& rhs) const { return _itr >=&(*rhs); }
 	};
 
-	// template <class InputIterator, class Distance>
-	// void advance (InputIterator& it, Distance n)
-	// {
-	// 	it += n;
-	// }
-} // namespace ft
-
+	template <class InputIterator, class Distance>
+	void advance (InputIterator& it, Distance n)
+	{
+		it += n;
+	}
+} 

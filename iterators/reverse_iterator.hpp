@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:17 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/24 17:41:11 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/02 13:39:12 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ namespace ft
 			typedef typename iterator_traits<Iterator>::pointer pointer;
 			typedef typename iterator_traits<Iterator>::reference reference;
 
-	 	private:
 			iterator_type	current;
 
         public:
@@ -144,6 +143,4 @@ namespace ft
 		{
 			return (lhs.base() <= rhs.base());
 		}
-} // namespace ft
-
-
+} 
