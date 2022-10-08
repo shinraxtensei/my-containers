@@ -1,6 +1,7 @@
 #include "../containers/vector.hpp"
 #include <vector>
 #include <iostream>
+
 int main(void)
 {
 	std::cout << "=========\t ft::vector \t=========" << std::endl;
@@ -402,4 +403,31 @@ int main(void)
     std::cout << "size of char vector : " << char_vec.size() << std::endl;
     std::cout << "size of int vector : " << int_vec.size() << std::endl;
     std::cout << "size of string vector : " << string_vec.size() << std::endl;
-}
+
+
+
+
+
+    std::cout << "=========== relational comps ===========" << std::endl;
+
+    int_vec.clear();
+    int_vec.assign(5,9);
+    ft::vector<int> rival(int_vec);
+
+    rival.assign(5,1);
+     std::cout << "int_vec > rival : ";
+    (int_vec > rival ) ? std::cout <<"true\n" : std::cout << "false\n";
+     std::cout << "int_vec < rival : ";
+    (int_vec < rival ) ? std::cout <<"true\n" : std::cout << "false\n";
+
+
+    
+    rival = int_vec;
+    std::cout << "int_vec == rival : ";
+    (int_vec == rival ) ? std::cout <<"true\n" : std::cout << "false\n";
+
+     std::cout << "int_vec != rival : ";
+    (int_vec != rival ) ? std::cout <<"true\n" : std::cout << "false\n";
+
+
+} 

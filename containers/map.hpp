@@ -41,7 +41,6 @@ namespace ft
 
 			public :
 
-
 			bool operator()(const value_type& x, const value_type& y) const
 			{
 				return (_comp(x.first, y.first));
@@ -251,6 +250,24 @@ namespace ft
 				return (this->insert(ft::make_pair(key, mapped_type())).first->second);
 			return ((*tmp).second);
 		}
+
+		 mapped_type& at (const key_type& k)
+		 {
+			 iterator tmp = this->find(k);
+
+			 if (tmp == this->end())
+				 throw std::out_of_range("map::at");
+			 return ((*tmp).second);
+		 }
+		 
+		 const mapped_type& at (const key_type& k) const
+		 {
+			 const_iterator tmp = this->find(k);
+
+			 if (tmp == this->end())
+				 throw std::out_of_range("map::at");
+			 return ((*tmp).second);
+		 }
 
 		/********************************************
 		 * 				MODIFIERS					*

@@ -5,7 +5,7 @@
 #include <memory>
 #include "../type_traits.../pair.hpp"
 #include "RB_tree.hpp"
-
+#include <iostream>
 
 
 namespace ft
@@ -230,7 +230,7 @@ namespace ft
 		friend bool operator==(const set<_Key, _Compare, _Alloc> & lhs,
 				const set<_Key, _Compare, _Alloc>& rhs);
 
-		template<class _Key, class _Compare, class _Alloc>
+  		template<class _Key, class _Compare, class _Alloc>
 		friend bool operator<(const set<_Key, _Compare, _Alloc> & lhs,
 				const set<_Key, _Compare, _Alloc>& rhs);
     };
@@ -273,4 +273,4 @@ namespace ft
 			lhs.swap(rhs);
 	}
     
-};
+}
