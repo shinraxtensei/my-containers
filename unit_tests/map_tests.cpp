@@ -2,30 +2,14 @@
 #include <map>
 #include "../type_traits.../pair.hpp"
 #include "../containers/map.hpp"
-
-
-#define REDD "\033[1;31m"
-#define GREEN "\033[1;32m"
-#define YELLOW "\033[1;33m"
-#define BLUE "\033[1;34m"
-#define MAGENTA "\033[1;35m"
-#define CYAN "\033[1;36m"
-#define WHITE "\033[1;37m"
-#define RESET "\033[0m"
+#include "tests.hpp"
 
 
 
-
-double ft_start;
-double ft_end;
-double std_start;
-double std_end;
+double ft_start , ft_end , std_start , std_end ;
 
 
-#define FT_START ft_start = clock();
-#define FT_END  ft_end = clock();
-#define STD_START std_start = clock();
-#define STD_END  std_end = clock();
+
 
 #define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
 
@@ -66,7 +50,7 @@ int main(void)
 	std::map<char,int> std_first;
 	for (int i = 0; i < 100 ; i++)	{std_first[i] = i;}
 	STD_END;
-	std::cout << GREEN << "===== OK ====="  << std::endl;
+	std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 	COMPARE_TIMES;
 
 	std::cout <<   "\n===== Range constructor =====" << std::endl << std::endl;
