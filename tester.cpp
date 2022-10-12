@@ -2,28 +2,91 @@
 
 
 
-// #define L_CYAN "\033[1;96m"
+void loading()
+{
+    std::cout <<YELLOW << "loading: ";
+    std::string points= "...";
+    for (int i = 0; i < 3; i++)
+    {
+        std::cout << points.substr(0, i %3);
+        std::cout.flush();
+        sleep(1);
+    }
+    std::cout << RESET <<  std::endl;
+}
 
 
-// #define REDD "\033[1;31m"
-// #define GREEN "\033[1;32m"
-// #define YELLOW "\033[1;33m"
-// #define BLUE "\033[1;34m"
-// #define MAGENTA "\033[1;35m"
-// #define CYAN "\033[1;36m"
-// #define WHITE "\033[1;37m"
-// #define RESET "\033[0m"
+void compare_times(double first, double second)
+{
+    std::string result;
+    double ratio = first / second;
+    if (ratio > 1)
+        result = "FT is " + std::to_string(ratio) + " times faster than STD";
+    else if (ratio < 1)
+        result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
+    else
+        result = "both are equal";
+    std::cout<< BLUE << result << RESET << std::endl;
+}
 
 
-// void compare_times(double first, double second)
-// {
-//     std::string result;
-//     double ratio = first / second;
-//     if (ratio > 1)
-//         result = "FT is " + std::to_string(ratio) + " times faster than STD";
-//     else if (ratio < 1)
-//         result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
-//     else
-//         result = "both are equal";
-//     std::cout<< BLUE << result << RESET << std::endl;
-// }
+
+
+int main ()
+{
+    std::cout << BLUE  <<  hello << std::endl << std::endl;
+    std::cout << BLUE << "this is a simple tester for containers\n" << RESET << std::endl ;
+  
+    while (69)
+    {
+
+        std::cout << GREEN << "\n\nchoose the container you want to test" << RESET << std::endl;
+        std::cout << YELLOW << "1. vector\t\t\a" << RESET ;
+        std::cout << YELLOW << "2. stack\t\t\a" << RESET;
+        std::cout << YELLOW << "3. map\t\t\a" << RESET ;
+        std::cout << YELLOW << "4. set\t\t\a" << RESET ;
+        std::cout << YELLOW << "5. all\t\t\a" << RESET ;
+        std::cout << REDD << "6 - exit \n\a" << RESET ;
+        std::cout << "your choice: ";
+        std::string choice;
+        std::cin >> choice;
+
+        
+        if (choice == "1")
+        {
+            LOAD;
+            vector_unit_tests();
+        }
+        else if (choice == "2")
+        {
+            LOAD;
+            stack_unit_tests();
+        }
+        else if (choice == "3")
+        {
+            LOAD;
+            map_unit_tests();
+        }
+        else if (choice == "4")
+        {
+            LOAD;
+           set_unit_tests();
+        }
+        else if (choice == "5")
+        {
+            LOAD;
+            vector_unit_tests();
+            stack_unit_tests();
+            map_unit_tests();
+            set_unit_tests();
+        }
+        else if  (choice == "6")
+        {
+            std::cout << "exiting..." << std::endl;
+            break;
+        }
+        else
+            std::cout << REDD << "invalid choice" << RESET << std::endl;
+        sleep(1);
+    }
+}

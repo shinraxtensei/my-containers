@@ -1,35 +1,31 @@
-#include <iostream>
-#include <unistd.h>
-#include <set>
-#include "../containers/set.hpp"
-#include "../type_traits.../pair.hpp"
+
 #include "tests.hpp"
 
 
+
+// void compare_times(double first, double second)
+// {
+//     std::string result;
+//     double ratio = first / second;
+//     if (ratio > 1)
+//         result = "FT is " + std::to_string(ratio) + " times faster than STD";
+//     else if (ratio < 1)
+//         result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
+//     else
+//         result = "both are equal";
+//     std::cout<< BLUE << result << RESET << std::endl;
+// }
+
+
+
+int set_unit_tests()
+{
+
 double ft_start , ft_end , std_start , std_end ;
-
-void compare_times(double first, double second)
-{
-    std::string result;
-    double ratio = first / second;
-    if (ratio > 1)
-        result = "FT is " + std::to_string(ratio) + " times faster than STD";
-    else if (ratio < 1)
-        result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
-    else
-        result = "both are equal";
-    std::cout<< BLUE << result << RESET << std::endl;
-}
-
-
-
-int main()
-{
 
 std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
 
 std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;
-
 
 std::cout << "===== Default constructor =====" << std::endl << std::endl;
 

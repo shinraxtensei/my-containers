@@ -6,12 +6,14 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:13 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/08 07:50:02 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:08:45 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#pragma once
+#ifndef ITERATOR_TRAITS_HPP
+# define ITERATOR_TRAITS_HPP
+
 
 #include <cstddef>
 #include <iterator>
@@ -132,3 +134,4 @@ typename ft::iterator_traits<It>::difference_type
 
 
 }
+#endif

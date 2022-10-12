@@ -6,11 +6,13 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:02:42 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/29 13:40:53 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:07:48 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ENABLE_IF_HPP
+# define ENABLE_IF_HPP
+
 
 
 namespace ft
@@ -22,3 +24,5 @@ namespace ft
     struct enable_if<true, T> {typedef T type;} ;
 
 } ;
+
+#endif

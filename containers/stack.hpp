@@ -6,11 +6,12 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 16:59:51 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/21 15:20:22 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:06:46 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef STACK_HPP
+# define STACK_HPP
 
 #include "vector.hpp"
 
@@ -93,3 +94,5 @@ namespace ft
             friend bool operator>= (const stack<T ,Container>& lhs,const stack<T ,Container>& rhs) {return (lhs.c >= rhs.c) ;}
     };
 };
+
+#endif

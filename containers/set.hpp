@@ -1,5 +1,5 @@
-#pragma once 
-
+#ifndef SET_HPP
+#define SET_HPP
 
 #include <functional>
 #include <memory>
@@ -274,3 +274,4 @@ namespace ft
 	}
     
 }
+#endif

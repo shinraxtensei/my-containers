@@ -6,11 +6,12 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:02:45 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/02 11:24:11 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:08:00 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef IS_INGERAL_HPP
+# define IS_INGERAL_HPP
 
 
 
@@ -53,3 +54,5 @@ namespace ft
 
 
 };
+
+#endif

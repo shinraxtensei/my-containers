@@ -6,12 +6,14 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:02:49 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/29 13:43:07 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:11:27 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+// #ifndef LEXICOGRAPHICAL&&COMP_HPP
+// # define LEXICOGRAPHICAL&&COMP_HPP
 
+#pragma once
 namespace ft
 {
     template <class InputIterator1, class InputIterator2>
@@ -88,3 +90,6 @@ template <class InputIterator1, class InputIterator2, class Compare>
 
 
 
+
+
+// #endif

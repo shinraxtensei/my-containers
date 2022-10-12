@@ -1,8 +1,10 @@
 
-#pragma once
+#ifndef TESTS_HPP
+#define TESTS_HPP
 
 #include <sys/time.h>
-
+#include <thread>
+#include <unistd.h>
 #include <__tree>
 #include <cstdlib>
 #include <iostream>
@@ -16,6 +18,19 @@
 #include <utility>
 #include <vector>
 
+
+#include "/Users/ahouari/Desktop/triz_work/contonirs/type_traits.../enable_if.hpp"
+#include  "/Users/ahouari/Desktop/triz_work/contonirs/type_traits.../is_ingeral.hpp"
+#include "/Users/ahouari/Desktop/triz_work/contonirs/type_traits.../lexicographical&&comp.hpp"
+#include "/Users/ahouari/Desktop/triz_work/contonirs/type_traits.../pair.hpp"
+
+
+#include "/Users/ahouari/Desktop/triz_work/contonirs/iterators/iterator_traits.hpp"
+#include "/Users/ahouari/Desktop/triz_work/contonirs/iterators/random_access_iterator.hpp"
+#include "/Users/ahouari/Desktop/triz_work/contonirs/iterators/RBT_iterator.hpp"
+#include "/Users/ahouari/Desktop/triz_work/contonirs/iterators/reverse_iterator.hpp"
+
+
 #include "/Users/ahouari/Desktop/triz_work/contonirs/containers/RB_tree.hpp"
 #include "/Users/ahouari/Desktop/triz_work/contonirs/containers/map.hpp"
 #include "/Users/ahouari/Desktop/triz_work/contonirs/containers/vector.hpp"
@@ -24,7 +39,26 @@
 
 
 
+
+int map_unit_tests();
+int set_unit_tests();
+int stack_unit_tests();
+int vector_unit_tests();
+
+void compare_times(double first, double second);
+void loading();
+
+#define LOAD loading();
+
+#define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
+
 #define PRINT(...) std::cout, L_CYAN, __VA_ARGS__, RESET, "\n"
+
+
+#define PRINT(...) std::cout, L_CYAN, __VA_ARGS__, RESET, "\n"
+
+#define hello "                                   \n#    # ###### #      #       ####  \n#    # #      #      #      #    # \n###### #####  #      #      #    # \n#    # #      #      #      #    # \n#    # #      #      #      #    # \n#    # ###### ###### ######  ####  "
+
 
 
 #define L_CYAN "\033[1;96m"
@@ -41,7 +75,6 @@
 #define FT_END  ft_end = clock();
 #define STD_START std_start = clock();
 #define STD_END  std_end = clock();
-#define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
 
 
 
@@ -51,3 +84,5 @@ std::ostream& operator,(std::ostream& out, const T& t) {
   out << t;
   return out;
 }
+
+#endif

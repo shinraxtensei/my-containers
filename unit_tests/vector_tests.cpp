@@ -1,9 +1,9 @@
-#include "../containers/vector.hpp"
-#include <vector>
-#include <iostream>
+#include "tests.hpp"
 
-int main(void)
+
+int vector_unit_tests()
 {
+
 	std::cout << "=========\t ft::vector \t=========" << std::endl;
 	ft::vector<int>	a;
 	ft::vector<int>::iterator	a_it;
@@ -430,4 +430,5 @@ int main(void)
     (int_vec != rival ) ? std::cout <<"true\n" : std::cout << "false\n";
 
 
+return (0);
 } 

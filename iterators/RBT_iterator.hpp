@@ -1,7 +1,11 @@
-#pragma once
+#ifndef RBT_ITERATOR_HPP
+# define RBT_ITERATOR_HPP
 
 
 #include "./iterator_traits.hpp"
+#include "./random_access_iterator.hpp"
+#include "./reverse_iterator.hpp"
+
 
 
 
@@ -146,7 +150,7 @@ namespace ft
 
 	template <class Iterator>
 	typename Iterator::difference_type
-	distance (const Iterator &first,
+	Distance (const Iterator &first,
 	const Iterator &last)
 	{
 		typename Iterator::difference_type	n = 0;
@@ -160,3 +164,6 @@ namespace ft
 		return (n);
 	}
 } // namespace ft
+
+
+#endif

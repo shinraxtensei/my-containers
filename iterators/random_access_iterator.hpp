@@ -6,11 +6,13 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:15 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/29 13:45:18 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:09:00 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef RANDOM_ACCESS_ITERATOR_HPP
+# define RANDOM_ACCESS_ITERATOR_HPP
+
 
 #include <cstddef>
 #include "iterator_traits.hpp"
@@ -132,3 +134,5 @@ namespace ft
 		it += n;
 	}
 } 
+
+#endif

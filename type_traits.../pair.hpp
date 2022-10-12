@@ -6,11 +6,12 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 17:02:53 by ahouari           #+#    #+#             */
-/*   Updated: 2022/09/29 13:43:02 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:08:32 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef PAIR_HPP
+# define PAIR_HPP
 
 namespace ft
 {
@@ -82,3 +83,5 @@ namespace ft
             return (pair<T1 , T2> (x,y));
         }
 };
+
+#endif

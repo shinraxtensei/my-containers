@@ -1,40 +1,27 @@
-#include <iostream>
-#include <map>
-#include "../type_traits.../pair.hpp"
-#include "../containers/map.hpp"
 #include "tests.hpp"
-
-
 
 double ft_start , ft_end , std_start , std_end ;
 
+// #define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
 
+// void compare_times(double first, double second)
+// {
+//     std::string result;
+//     double ratio = first / second;
+//     if (ratio > 1)
+//         result = "FT is " + std::to_string(ratio) + " times faster than STD";
+//     else if (ratio < 1)
+//         result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
+//     else
+//         result = "both are equal";
+//     std::cout<< BLUE << result << RESET << std::endl;
+// }
 
-
-#define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
-
-void compare_times(double first, double second)
+int map_unit_tests()
 {
-    std::string result;
-    double ratio = first / second;
-    if (ratio > 1)
-        result = "FT is " + std::to_string(ratio) + " times faster than STD";
-    else if (ratio < 1)
-        result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
-    else
-        result = "both are equal";
-    std::cout<< BLUE << result << RESET << std::endl;
-}
-
-
-
-int main(void)
-{
-
-
 
 	std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
-	std::cout << "============================ LET THE BEST WIN =======================" << std::endl << std::endl;
+
 
 
 	std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;
@@ -91,10 +78,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
-	
-	// make a while loop and instert 1000 elements in the map
-	
-
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 2 - ITERATORS =======================" << RESET << std::endl ;
 
 	std::cout << "\n===== begin =====" << std::endl << std::endl;
@@ -162,6 +146,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 3 - CAPACITY/SIZE AND RELATED STUFF =======================" << RESET << std::endl ;
 
 	std::cout << "\n===== empty =====" << std::endl << std::endl;
@@ -207,7 +192,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
-
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 4 - ELEMENT ACCESS =======================" << RESET << std::endl ;
 
 	std::cout << "\n===== operator[] =====" << std::endl << std::endl;
@@ -244,6 +229,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 5 - MODIFIERS =======================" << RESET << std::endl ;
 
 	std::cout << "\n===== insert =====" << std::endl << std::endl;
@@ -456,7 +442,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
-
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 6 - EQUAL_RANGE =======================" << RESET << std::endl ;
 
  	
@@ -505,7 +491,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
-
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 7 - OBSERVERS =======================" << RESET << std::endl ;
 
 	std::cout << "\n===== key_comp =====" << std::endl << std::endl;
@@ -572,7 +558,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES
 
-
+	sleep(1);
 	std::cout << YELLOW << "\n============================ 8 - COMPARAISON =======================" << RESET << std::endl ;
 	std::cout << "============================ COMPARAISON =======================" << std::endl << std::endl;
 
@@ -641,7 +627,7 @@ int main(void)
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES
 	
-
+return (0);
 
 
 }

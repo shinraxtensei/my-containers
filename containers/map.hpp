@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MAP_HPP
+#define MAP_HPP
 
 #include <functional>
 #include <memory>
@@ -367,6 +368,7 @@ namespace ft
 			this->_rbtree.Swap(x._rbtree);
 		}
 
+
 		/**
 		 * clear
 		 */
@@ -557,3 +559,5 @@ namespace ft
 			lhs.swap(rhs);
 	}
 } // namespace ft
+
+#endif

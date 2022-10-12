@@ -6,14 +6,16 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:17 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/02 13:39:12 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 10:10:34 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#pragma once
+#ifndef REVERSE_ITERATOR_HPP
+# define REVERSE_ITERATOR_HPP
 
 #include "iterator_traits.hpp"
+#include "random_access_iterator.hpp"
 
 namespace ft
 {
@@ -144,3 +146,5 @@ namespace ft
 			return (lhs.base() <= rhs.base());
 		}
 } 
+
+#endif

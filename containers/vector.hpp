@@ -6,11 +6,12 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:08 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/08 07:49:58 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/12 11:18:54 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef VECTOR_HPP
+# define VECTOR_HPP
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,10 +35,6 @@ namespace ft
 	class vector
 	{
 		public :
-
-		/**
-		 *	Typedef yada yada yada
-		 */
 
 		typedef	T value_type;
 		typedef Allocator allocator_type;
@@ -624,3 +621,4 @@ namespace ft
 
 };
 
+#endif

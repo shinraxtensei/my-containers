@@ -1,9 +1,7 @@
-#include "../containers/stack.hpp"
-#include <iostream>
-#include <stack>
 
+#include "tests.hpp"
 
-int	main(void)
+int stack_unit_tests()
 {
 	ft::stack<int> yo;
 	std::cout << "=============\t\tft::stack\t=============" << std::endl;
@@ -122,4 +120,6 @@ int	main(void)
 	else
 		std::cout << "both stacks are equal" << std::endl;
 	std::cout << "================================" << std::endl;
+
+	return (0);
 }

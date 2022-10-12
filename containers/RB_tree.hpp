@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RB_TREE_HPP
+#define RB_TREE_HPP
 
 #include <iostream>
 #include "../iterators/RBT_iterator.hpp"
@@ -743,3 +744,5 @@ namespace ft
 	}
 
 }
+
+#endif
