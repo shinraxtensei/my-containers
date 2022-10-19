@@ -48,6 +48,16 @@ int vector_unit_tests();
 void compare_times(double first, double second);
 void loading();
 
+template <typename T>
+void print_content(T& container) {
+  for (typename T::iterator it=container.begin(); it!=container.end(); ++it)
+    std::cout << ' ' << *it;
+    std::cout << std::endl;
+}
+
+
+#define CONTENT(X) print_content(X)
+
 #define LOAD loading();
 
 #define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);

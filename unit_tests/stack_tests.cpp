@@ -3,123 +3,97 @@
 
 int stack_unit_tests()
 {
-	ft::stack<int> yo;
-	std::cout << "=============\t\tft::stack\t=============" << std::endl;
-	std::cout << "is it empty ? " << (yo.empty() == 1 ? "yes." : "no.") << std::endl;
-	std::cout << "size of my stack before adding 3 values : " << yo.size() << std::endl;
-	yo.push(42);
-	yo.push(666);
-	yo.push(21);
-	std::cout << yo.size() << std::endl;
-	std::cout << "trying to show all values of present on my stack " << std::endl;
-    for (ft::stack<int> dump = yo; !dump.empty(); dump.pop())
-		std::cout << dump.top() << std::endl;
-	std::cout << "is it empty ? " << (yo.empty() == 1 ? "yes." : "no.") << std::endl;
-	std::cout << "\t\ttesting operators" << std::endl;
-	
-	ft::stack<int> yo2;
-	yo2.push(84);
-	yo2.push(1337);
-	yo2.push(2727);
+std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
+std::cout << "============================ STACK UNIT TESTS =======================" << std::endl;
 
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "<=" << std::endl;
-	if (yo <= yo2)
-		std::cout << "stack1 is <= than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not <= than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "<" << std::endl;
-	if (yo < yo2)
-		std::cout << "stack1 is < than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not < than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "==" << std::endl;
-	if (yo == yo2)
-		std::cout << "both stacks are equal" << std::endl;
-	else
-		std::cout << "both stacks are not equal" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << ">" << std::endl;
-	if (yo > yo2)
-		std::cout << "stack1 is > than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not > than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << ">=" << std::endl;
-	if (yo >= yo2)
-		std::cout << "stack1 is >= than stack2" << std::endl;
-	else
-		std::cout << "stack 1 is not >= than stack2" << std::endl;
+std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;
 
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "!=" << std::endl;
-	if (yo != yo2)
-		std::cout << "both stacks are differents" << std::endl;
-	else
-		std::cout << "both stacks are equal" << std::endl;
-	std::cout << "================================" << std::endl;
+std::cout << "===== Default constructor =====" << std::endl << std::endl;
+	ft::stack<int> ft_stack;
+	std::stack<int> std_stack;
 
-	std::cout << "\tNow testing with real STD::STACK" << std::endl;
+	// push back some numbers
+	for (int i = 0; i < 10 ; i++)
+	{
+		ft_stack.push(i);
+		std_stack.push(i);
+	}
 
-	std::stack<int> lo;
-	std::cout << "=============\t\tstd::stack\t=============" << std::endl;
-	std::cout << "is it empty ? " << (lo.empty() == 1 ? "yes." : "no.") << std::endl;
-	std::cout << "size of my stack before adding 3 values : " << lo.size() << std::endl;
-	lo.push(42);
-	lo.push(666);
-	lo.push(21);
-	std::cout << lo.size() << std::endl;
-	std::cout << "trying to show all values of present on my stack " << std::endl;
-    for (std::stack<int> dump = lo; !dump.empty(); dump.pop())
-		std::cout << dump.top() << std::endl;
-	std::cout << "is it empty ? " << (lo.empty() == 1 ? "yes." : "no.") << std::endl;
-	std::cout << "\t\ttesting operators" << std::endl;
-	
-	std::stack<int> lo2;
-	lo2.push(84);
-	lo2.push(1337);
-	lo2.push(2727);
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "<=" << std::endl;
-	if (lo <= lo2)
-		std::cout << "stack1 is <= than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not <= than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "<" << std::endl;
-	if (lo < lo2)
-		std::cout << "stack1 is < than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not < than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "==" << std::endl;
-	if (lo == lo2)
-		std::cout << "both stacks are equal" << std::endl;
-	else
-		std::cout << "both stacks are not equal" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << ">" << std::endl;
-	if (lo > lo2)
-		std::cout << "stack1 is > than stack2" << std::endl;
-	else
-		std::cout << "stack1 is not > than stack2" << std::endl;
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << ">=" << std::endl;
-	if (lo >= lo2)
-		std::cout << "stack1 is >= than stack2" << std::endl;
-	else
-		std::cout << "stack 1 is not >= than stack2" << std::endl;
+std::cout << "===== copy constructor =====" << std::endl << std::endl;
 
-	std::cout << "================================" << std::endl;
-	std::cout << "operator : " << "!=" << std::endl;
-	if (lo != lo2)
-		std::cout << "both stacks are differents" << std::endl;
-	else
-		std::cout << "both stacks are equal" << std::endl;
-	std::cout << "================================" << std::endl;
+	ft::stack<int> ft_stack2(ft_stack);
+	std::stack<int> std_stack2(std_stack);
 
-	return (0);
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+
+std::cout << "===== assignment operator =====" << std::endl << std::endl;
+
+	ft::stack<int> ft_stack3;
+	std::stack<int> std_stack3;
+
+	ft_stack3 = ft_stack;
+	std_stack3 = std_stack;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+sleep(1);	
+std::cout << YELLOW << "============================2 - MEMBER FUNCTIONS =======================" << RESET  << std::endl;
+
+std::cout << "===== empty =====" << std::endl << std::endl;
+
+	(ft_stack.empty()) ? std::cout << "ft_stack is empty" << std::endl : std::cout << "ft_stack is not empty" << std::endl;
+	(std_stack.empty()) ? std::cout << "std_stack is empty" << std::endl : std::cout << "std_stack is not empty" << std::endl;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+std::cout << "===== size =====" << std::endl << std::endl;
+
+	std::cout << "ft_stack size is " << ft_stack.size() << std::endl;
+	std::cout << "std_stack size is " << std_stack.size() << std::endl;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+std::cout << "===== top =====" << std::endl << std::endl;
+
+	std::cout << "ft_stack top is " << ft_stack.top() << std::endl;
+	std::cout << "std_stack top is " << std_stack.top() << std::endl;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+std::cout << "===== push =====" << std::endl << std::endl;
+
+	ft_stack.push(69);
+	std_stack.push(69);
+
+	std::cout << "ft_stack top is " << ft_stack.top() << std::endl;
+	std::cout << "std_stack top is " << std_stack.top() << std::endl;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+std::cout << "===== pop =====" << std::endl << std::endl;
+
+	ft_stack.pop();
+	std_stack.pop();
+
+	std::cout << "ft_stack top is " << ft_stack.top() << std::endl;
+	std::cout << "std_stack top is " << std_stack.top() << std::endl;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+
+std::cout << YELLOW << "============================ 3 - RELATIONAL OPERATORS =======================" << RESET << std::endl;
+
+std::cout << "mystack == mystack2  :" << ((ft_stack == ft_stack2) ? "true" : "false") << std::endl;
+std::cout << "mystack != mystack2  :" << ((ft_stack != ft_stack2) ? "true" : "false") << std::endl;
+std::cout << "mystack < mystack2  :" << ((ft_stack < ft_stack2) ? "true" : "false") << std::endl;
+std::cout << "mystack <= mystack2  :" << ((ft_stack <= ft_stack2) ? "true" : "false") << std::endl;
+std::cout << "mystack > mystack2  :" << ((ft_stack > ft_stack2) ? "true" : "false") << std::endl;
+std::cout << "mystack >= mystack2  :" << ((ft_stack >= ft_stack2) ? "true" : "false") << std::endl;
+
+
+
+return (0);
+
 }

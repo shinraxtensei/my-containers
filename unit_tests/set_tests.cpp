@@ -3,21 +3,6 @@
 
 
 
-// void compare_times(double first, double second)
-// {
-//     std::string result;
-//     double ratio = first / second;
-//     if (ratio > 1)
-//         result = "FT is " + std::to_string(ratio) + " times faster than STD";
-//     else if (ratio < 1)
-//         result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
-//     else
-//         result = "both are equal";
-//     std::cout<< BLUE << result << RESET << std::endl;
-// }
-
-
-
 int set_unit_tests()
 {
 
@@ -31,12 +16,12 @@ std::cout << "===== Default constructor =====" << std::endl << std::endl;
 
 FT_START;
 ft::set<int> ft_set;
-for(int i = 0; i < 100000; i++) {ft_set.insert(i);}
+for(int i = 0; i < 10; i++) {ft_set.insert(i);}
 FT_END;
 
 STD_START;
 std::set<int> std_set;
-for(int i = 0; i < 100000; i++) {std_set.insert(i);}
+for(int i = 0; i < 10; i++) {std_set.insert(i);}
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
@@ -68,6 +53,7 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
+sleep(1);
 std::cout << YELLOW << "============================ 2 - ITERATORS =======================" << RESET << std::endl ;
 
 std::cout << "===== begin =====" << std::endl << std::endl;
@@ -135,7 +121,7 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
-
+sleep(1);
 std::cout << YELLOW << "\n============================ 3 - CAPACITY/SIZE AND RELATED STUFF =======================" << RESET << std::endl ;
 
 
@@ -179,19 +165,32 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
-
+sleep(1);
 std::cout << YELLOW << "\n============================ 4 - MODIFIERS =======================" << RESET << std::endl ;
 
 std::cout << "===== insert a value =====" << std::endl << std::endl;
 
 FT_START;
-std::cout << "42 inserted in FT \n";
+
+std::cout << "ft_set before insert :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 ft_set.insert(42);
+std::cout << "ft_set after insert :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
+
 FT_END;
 
 STD_START;
-std::cout << "42 inserted in STD \n";
+
+std::cout << "std_set before insert :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 std_set.insert(42);
+std::cout << "std_set after insert :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
@@ -201,13 +200,23 @@ COMPARE_TIMES;
 std::cout << "===== insert into a pos =====" << std::endl << std::endl;
 
 FT_START;
-std::cout << "42 inserted in FT \n";
-ft_set.insert(ft_set.begin(), 42);
+std::cout << "ft_set before insert :\n"
+<< "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
+ft_set.insert(ft_set.begin(), -5);
+std::cout << "ft_set after insert :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 FT_END;
 
 STD_START;
-std::cout << "42 inserted in STD \n";
-std_set.insert(std_set.begin(), 42);
+std::cout << "std_set before insert :\n"
+<< "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
+std_set.insert(std_set.begin(), -5);
+std::cout << "std_set after insert :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
@@ -215,29 +224,61 @@ COMPARE_TIMES;
 
 std::cout << "===== insert a range =====" << std::endl << std::endl;
 
+ft_set2.clear();
+std_set2.clear();
 FT_START;
-std::cout << "range inserted in FT \n";
-ft_set.insert(ft_set.begin(), ft_set.end());
+std::cout << "ft_set2 before insert :\n";
+std::cout << "size : " << ft_set2.size() << std::endl;
+CONTENT(ft_set2);
+ft_set2.insert(ft_set.begin(), ft_set.end());
+std::cout << "ft_set2 after insert :\n";
+std::cout << "size : " << ft_set2.size() << std::endl;
+CONTENT(ft_set2);
 FT_END;
 
 STD_START;
-std::cout << "range inserted in STD \n";
-std_set.insert(std_set.begin(), std_set.end());
+std::cout << "std_set2 before insert :\n"
+<< "size : " << std_set2.size() << std::endl;
+CONTENT(std_set2);
+
+std_set2.insert(std_set.begin(), std_set.end());
+
+std::cout << "std_set2 after insert :\n";
+std::cout << "size : " << std_set2.size() << std::endl;
+CONTENT(std_set2);
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
-std::cout << "===== erase a pos =====" << std::endl << std::endl;
+
+
+
+
+
+
+std::cout  << "===== erase a pos =====" <<RESET << std::endl << std::endl;
 
 FT_START;
-std::cout << "42 erased from FT \n";
+std::cout << "ft_set before erase :\n"
+<< "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 ft_set.erase(ft_set.begin());
+std::cout << "42 erased from FT \n";
+std::cout << "ft_set after erase :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 FT_END;
 
 STD_START;
-std::cout << "42 erased from STD \n";
+std::cout << "std_set before erase :\n"
+<< "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 std_set.erase(std_set.begin());
+std::cout << "42 erased from STD \n";
+std::cout << "std_set after erase :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
@@ -246,13 +287,25 @@ COMPARE_TIMES;
 std::cout << "===== erase by key =====" << std::endl << std::endl;
 
 FT_START;
-std::cout << "42 erased from FT \n";
+std::cout << "ft_set before erase :\n"
+<< "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 ft_set.erase(42);
+std::cout << "42 erased from FT \n";
+std::cout << "ft_set after erase :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 FT_END;
 
 STD_START;
-std::cout << "42 erased from STD \n";
+std::cout << "std_set before erase :\n"
+<< "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 std_set.erase(42);
+std::cout << "42 erased from STD \n";
+std::cout << "std_set after erase :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 
 STD_END;
 
@@ -262,13 +315,24 @@ COMPARE_TIMES;
 std::cout << "===== erase a range =====" << std::endl << std::endl;
 
 FT_START;
-std::cout << "range erased from FT \n";
+std::cout << "ft_set before erase :\n"
+<< "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 ft_set.erase(ft_set.begin(), ft_set.end());
+std::cout << "ft_set after erase :\n";
+std::cout << "size : " << ft_set.size() << std::endl;
+CONTENT(ft_set);
 FT_END;
 
 STD_START;
-std::cout << "range erased from STD \n";
+std::cout << "std_set before erase :\n"
+<< "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
 std_set.erase(std_set.begin(), std_set.end());
+std::cout << "std_set after erase :\n";
+std::cout << "size : " << std_set.size() << std::endl;
+CONTENT(std_set);
+
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
@@ -305,6 +369,7 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
+sleep(1);
 std::cout << YELLOW << "\n============================ 5 - OBSERVERS =======================" << RESET << std::endl ;
 
 std::cout << "===== key_comp =====" << std::endl << std::endl;
@@ -377,6 +442,7 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
+sleep(1);
 std::cout << YELLOW << "\n============================ 6 - OPERATIONS =======================" << RESET << std::endl ;
 
 	std::cout << MAGENTA<< "\n\n== for FT ==" << RESET <<std::endl;

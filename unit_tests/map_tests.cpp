@@ -1,27 +1,11 @@
 #include "tests.hpp"
 
-double ft_start , ft_end , std_start , std_end ;
-
-// #define COMPARE_TIMES compare_times(ft_start - ft_end, std_start - std_end);
-
-// void compare_times(double first, double second)
-// {
-//     std::string result;
-//     double ratio = first / second;
-//     if (ratio > 1)
-//         result = "FT is " + std::to_string(ratio) + " times faster than STD";
-//     else if (ratio < 1)
-//         result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
-//     else
-//         result = "both are equal";
-//     std::cout<< BLUE << result << RESET << std::endl;
-// }
 
 int map_unit_tests()
 {
 
+	double ft_start , ft_end , std_start , std_end ;
 	std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
-
 
 
 	std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;
@@ -30,12 +14,12 @@ int map_unit_tests()
 	
 	FT_START;
 	ft::map<char,int> ft_first;
-	for (int i = 0; i < 100 ; i++)	{ft_first[i] = i;}
+	for (int i = 0; i < 10 ; i++)	{ft_first[i] = i;}
 	FT_END;
 
 	STD_START;
 	std::map<char,int> std_first;
-	for (int i = 0; i < 100 ; i++)	{std_first[i] = i;}
+	for (int i = 0; i < 10 ; i++)	{std_first[i] = i;}
 	STD_END;
 	std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 	COMPARE_TIMES;
@@ -114,7 +98,7 @@ int map_unit_tests()
 	COMPARE_TIMES;
 
 
-	std::cout << "\n===== end =====" << std::endl << std::endl;
+	std::cout << "\n===== rbegin =====" << std::endl << std::endl;
 
 	FT_START;
 	ft::map<char,int>::reverse_iterator ft_rit = ft_first.rbegin() ;
@@ -235,25 +219,37 @@ int map_unit_tests()
 	std::cout << "\n===== insert =====" << std::endl << std::endl;
 
 	FT_START;
-	ft_second.insert ( ft::pair<char,int>('a',100) );
-	ft_second.insert ( ft::pair<char,int>('z',200) );
-	ft::pair<ft::map<char,int>::iterator,bool> ft_ret;
-	ft_ret = ft_second.insert ( ft::pair<char,int>('z',500) );
-	if (ft_ret.second==false) {
-		std::cout << "element 'z' already existed";
-		std::cout << " with a value of " << ft_ret.first->second << std::endl;
-	}
+	// print content:
+	std::cout << "ft_second before insert contains:" << std::endl;
+	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
+	ft_second.insert ( ft::pair<char,int>('*',69) );
+	ft_second.insert ( ft::pair<char,int>('+',69) );
+	std::cout << "ft_second after insert contains:" << std::endl;
+	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
+	// try to insert a key that already exists
+	ft::pair<ft::map<char , int>::iterator , bool> ft_ret;
+	ft_ret = ft_second.insert (ft::pair<char,int> ('+', 69));
+	if (ft_ret.second == false)
+		std::cout << REDD << "+ already existed" <<RESET << std::endl;
+
 	FT_END;
 
 	STD_START;
-	std_second.insert ( std::pair<char,int>('a',100) );
-	std_second.insert ( std::pair<char,int>('z',200) );
-	std::pair<std::map<char,int>::iterator,bool> std_ret;
-	std_ret = std_second.insert ( std::pair<char,int>('z',500) );
-	if (std_ret.second==false) {
-		std::cout << "element 'z' already existed";
-		std::cout << " with a value of " << std_ret.first->second << std::endl;
-	}
+	std::cout << "std_second before insert contains:" << std::endl;
+	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
+	std_second.insert ( std::pair<char,int>('*',69) );
+	std_second.insert ( std::pair<char,int>('+',69) );
+	std::cout << "std_second after insert contains:" << std::endl;
+	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
+	// try to insert a key that already exists
+	std::pair<std::map<char , int>::iterator , bool> std_ret;
+	std_ret = std_second.insert (std::pair<char,int> ('+', 69));
+	if (std_ret.second == false)
+		std::cout << REDD << "+ already existed" <<RESET << std::endl;
 	STD_END;
 
 	std::cout << GREEN << "===== OK ====="  << std::endl;
@@ -263,17 +259,29 @@ int map_unit_tests()
 	std::cout << "\n===== erase =====" << std::endl << std::endl;
 
 	FT_START;
+	std::cout << "ft_second before erase contains:" << std::endl;
+	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
 	ft_it = ft_second.begin();
 	ft_second.erase (ft_it); // erasing by iterator
-	ft_second.erase ('z'); // erasing by key
+	ft_second.erase ('+'); // erasing by key
 	std::cout << "elements erased" << std::endl;
+	std::cout << "ft_second after erase contains:" << std::endl;
+	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
 	FT_END;
 
 	STD_START;
+	std::cout << "std_second before erase contains:" << std::endl;
+	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
 	std_it = std_second.begin();
 	std_second.erase (std_it); // erasing by iterator
-	std_second.erase ('z'); // erasing by key
+	std_second.erase ('+'); // erasing by key
 	std::cout << "elements erased" << std::endl;
+	std::cout << "std_second after erase contains:" << std::endl;
+	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
+		std::cout << it->first << " => " << it->second << std::endl;
 	STD_END;
 
 	std::cout << GREEN << "===== OK ====="  << std::endl;
@@ -469,6 +477,7 @@ int map_unit_tests()
  
 	std::cout << std::endl;
 
+	std::cout << MAGENTA<< "\n\n== for STD ==" << RESET <<std::endl;
 	STD_START;
 
 	std::map<char,int> std_equal_range_map;

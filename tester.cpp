@@ -30,8 +30,6 @@ void compare_times(double first, double second)
 }
 
 
-
-
 int main ()
 {
     std::cout << BLUE  <<  hello << std::endl << std::endl;
@@ -51,42 +49,40 @@ int main ()
         std::string choice;
         std::cin >> choice;
 
-        
-        if (choice == "1")
+
+        switch (choice[0])
         {
+        case '1':
             LOAD;
             vector_unit_tests();
-        }
-        else if (choice == "2")
-        {
+            break;
+        case '2':
             LOAD;
             stack_unit_tests();
-        }
-        else if (choice == "3")
-        {
+            break;
+        case '3':   
             LOAD;
             map_unit_tests();
-        }
-        else if (choice == "4")
-        {
+            break;
+        case '4':
             LOAD;
-           set_unit_tests();
-        }
-        else if (choice == "5")
-        {
+            set_unit_tests();
+            break;
+        case '5':
             LOAD;
             vector_unit_tests();
             stack_unit_tests();
             map_unit_tests();
             set_unit_tests();
-        }
-        else if  (choice == "6")
-        {
-            std::cout << "exiting..." << std::endl;
             break;
-        }
-        else
+        case '6':
+            std::cout << "exiting..." << std::endl;
+            exit(0);
+        default:
             std::cout << REDD << "invalid choice" << RESET << std::endl;
-        sleep(1);
+            break;
+
+        }
     }
+
 }
