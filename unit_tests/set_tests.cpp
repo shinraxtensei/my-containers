@@ -1,8 +1,6 @@
 
 #include "tests.hpp"
 
-
-
 int set_unit_tests()
 {
 
@@ -513,5 +511,4 @@ std::cout << YELLOW << "\n============================ 6 - OPERATIONS ==========
     COMPARE_TIMES;
 
 return 0;
-
 }

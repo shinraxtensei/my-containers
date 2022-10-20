@@ -1,9 +1,7 @@
 #include "tests.hpp"
 
-
 int map_unit_tests()
 {
-
 	double ft_start , ft_end , std_start , std_end ;
 	std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
 
@@ -219,7 +217,7 @@ int map_unit_tests()
 	std::cout << "\n===== insert =====" << std::endl << std::endl;
 
 	FT_START;
-	// print content:
+
 	std::cout << "ft_second before insert contains:" << std::endl;
 	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
@@ -238,6 +236,7 @@ int map_unit_tests()
 
 	STD_START;
 	std::cout << "std_second before insert contains:" << std::endl;
+
 	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
 	std_second.insert ( std::pair<char,int>('*',69) );

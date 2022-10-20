@@ -32,8 +32,7 @@ void compare_times(double first, double second)
 
 int main ()
 {
-    std::cout << BLUE  <<  hello << std::endl << std::endl;
-    std::cout << BLUE << "this is a simple tester for containers\n" << RESET << std::endl ;
+    std::cout << BLUE << "\n\n" <<  billboard << std::endl << std::endl;
   
     while (69)
     {
@@ -77,7 +76,7 @@ int main ()
             break;
         case '6':
             std::cout << "exiting..." << std::endl;
-            exit(0);
+            return (0);
         default:
             std::cout << REDD << "invalid choice" << RESET << std::endl;
             break;

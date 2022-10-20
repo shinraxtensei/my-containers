@@ -314,13 +314,30 @@ std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 
 std::cout << "===== swap =====" << std::endl << std::endl;
 
+
+
+myvector.insert(myvector.begin(),5,42);
+stdvector.insert(stdvector.begin(),5,42);
+
+std::cout << "myvector and stdvector before swap contains: \n";
+CONTENT(myvector);
+CONTENT(stdvector);
+std::cout << "myvector2 and stdvector2 before contains: \n";
+CONTENT(myvector2);
+CONTENT(stdvector2);
+
 myvector.swap(myvector2);
 stdvector.swap(stdvector2);
 
-std::cout << "myvector contains:";
+std::cout << CYAN << "\nswaping ... bip boop" << RESET << std::endl;
+
+
+std::cout << "\nmyvector and stdvector after contains: \n";
 CONTENT(myvector);
-std::cout << "stdvector contains:";
 CONTENT(stdvector);
+std::cout << "myvector2 and stdvector2 after contains: \n";
+CONTENT(myvector2);
+CONTENT(stdvector2);
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 

@@ -2,10 +2,13 @@
 #define SET_HPP
 
 #include <functional>
+#include <iostream>
 #include <memory>
 #include "../type_traits.../pair.hpp"
 #include "RB_tree.hpp"
-#include <iostream>
+#include "../iterators/RBT_iterator.hpp"
+#include "../type_traits.../pair.hpp"
+#include "../containers/RB_tree.hpp"
 
 
 namespace ft
