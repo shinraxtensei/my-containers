@@ -51,6 +51,21 @@ STD_END;
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
+
+std::cout << "===== Assignement operator =====" << std::endl << std::endl;
+
+FT_START;
+ft_set3 = ft_set;
+FT_END;
+
+STD_START;
+std_set3 = std_set;
+STD_END;
+
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+COMPARE_TIMES;
+
+
 sleep(1);
 std::cout << YELLOW << "============================ 2 - ITERATORS =======================" << RESET << std::endl ;
 
@@ -376,6 +391,8 @@ std::cout << "===== value_comp =====" << std::endl << std::endl;
 
 std::cout << "===== find =====" << std::endl << std::endl;
 
+ft_set.insert(42);
+std_set.insert(42);
 FT_START;
 std::cout << "FT find 42 : " << *ft_set.find(42) << std::endl;
 FT_END;

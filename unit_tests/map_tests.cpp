@@ -46,7 +46,7 @@ int map_unit_tests()
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES;
 
-	std::cout << "\n===== Copy operator =====" << std::endl << std::endl;
+	std::cout << "\n===== assignement operator =====" << std::endl << std::endl;
 
 	FT_START;
 	ft::map<char,int> ft_fourth;
@@ -217,7 +217,7 @@ int map_unit_tests()
 	std::cout << "\n===== insert =====" << std::endl << std::endl;
 
 	FT_START;
-
+		std::cout << MAGENTA<< "\n\n== for FT ==" << RESET <<std::endl;
 	std::cout << "ft_second before insert contains:" << std::endl;
 	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
@@ -227,6 +227,7 @@ int map_unit_tests()
 	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
 	// try to insert a key that already exists
+	std::cout << CYAN << "trying to insert the key (+ , 69) that already exists" << RESET << std::endl;
 	ft::pair<ft::map<char , int>::iterator , bool> ft_ret;
 	ft_ret = ft_second.insert (ft::pair<char,int> ('+', 69));
 	if (ft_ret.second == false)
@@ -235,8 +236,8 @@ int map_unit_tests()
 	FT_END;
 
 	STD_START;
+		std::cout << MAGENTA<< "\n\n== for STD ==" << RESET <<std::endl;
 	std::cout << "std_second before insert contains:" << std::endl;
-
 	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
 	std_second.insert ( std::pair<char,int>('*',69) );
@@ -244,7 +245,8 @@ int map_unit_tests()
 	std::cout << "std_second after insert contains:" << std::endl;
 	for (std::map<char,int>::iterator it=std_second.begin(); it!=std_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
-	// try to insert a key that already exists
+
+	std::cout << CYAN << "trying to insert the key (+ , 69) that already exists" << RESET << std::endl;
 	std::pair<std::map<char , int>::iterator , bool> std_ret;
 	std_ret = std_second.insert (std::pair<char,int> ('+', 69));
 	if (std_ret.second == false)
