@@ -447,11 +447,11 @@ COMPARE_TIMES;
 std::cout << "===== equal_range =====" << std::endl << std::endl;
 
 FT_START;
-std::cout << "FT equal_range 42 : " << *ft_set.equal_range(42).first << " " << *ft_set.equal_range(42).second << std::endl;
+std::cout << "FT equal_range 42 : " << *ft_set.equal_range(42).first << std::endl;
 FT_END;
 
 STD_START;
-std::cout << "STD equal_range 42 : " << *std_set.equal_range(42).first << " " << *std_set.equal_range(42).second << std::endl;
+std::cout << "STD equal_range 42 : " << *std_set.equal_range(42).first << std::endl;
 STD_END;
 
 std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
