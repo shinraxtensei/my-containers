@@ -570,7 +570,6 @@ int map_unit_tests()
 
 	sleep(1);
 	std::cout << YELLOW << "\n============================ 8 - COMPARAISON =======================" << RESET << std::endl ;
-	std::cout << "============================ COMPARAISON =======================" << std::endl << std::endl;
 
 	std::cout << MAGENTA<< "\n\n== for FT ==" << RESET <<std::endl;
 
