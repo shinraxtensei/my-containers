@@ -3,11 +3,6 @@ this project is meant to recreate some of the C++ STL containers (vector , stack
 
 
 ****************************************************************************************************************************
-![exception](https://user-images.githubusercontent.com/48833654/198960528-2d5781ea-c4a9-4163-96f7-c244a36d7e83.jpeg)
-<img width="970" alt="Screen Shot 2022-10-26 at 9 17 17 AM" src="https://user-images.githubusercontent.com/48833654/198960535-4df63895-7ddd-4bde-848f-5f98e46d075d.png">
-
-
-
 
 
 
