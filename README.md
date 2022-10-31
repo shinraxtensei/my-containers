@@ -1,11 +1,3 @@
-# ft_containers
-this project is meant to recreate some of the C++ STL containers (vector , stack , set and map)
-
-
-****************************************************************************************************************************
-
-
-
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>docs</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
