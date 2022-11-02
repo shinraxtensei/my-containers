@@ -125,10 +125,6 @@ namespace ft
 			DestroyNode(this->nil);
 		}
 
-
-
-
-
 		NodePointer	Search(NodePointer node, const KeyType &key) const
 		{
 			while (node)

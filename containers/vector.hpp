@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:08 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/20 09:41:58 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/10/31 11:35:35 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ namespace ft
 		 * begin
 		 */
 
-		iterator begin(void)
+		iterator begin(void) 
 		{
 			return (iterator(_array));
 		}
@@ -617,7 +617,6 @@ namespace ft
 	{
 		x.swap(y);
 	}
-
 
 };
 

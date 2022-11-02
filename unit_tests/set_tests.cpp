@@ -265,11 +265,6 @@ std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
 
-
-
-
-
-
 std::cout  << "===== erase a pos =====" <<RESET << std::endl << std::endl;
 
 FT_START;
@@ -386,16 +381,9 @@ sleep(1);
 std::cout << YELLOW << "\n============================ 5 - OBSERVERS =======================" << RESET << std::endl ;
 
 std::cout << "===== key_comp =====" << std::endl << std::endl;
-
-// FT_START;
-// std::cout << "FT key_comp : " << ft_set.key_comp() << std::endl;
-// FT_END;
-// STD_START;
-// std::cout << "STD key_comp : " << std_set.key_comp() << std::endl;
-// STD_END;
-
-// std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 std::cout << "===== value_comp =====" << std::endl << std::endl;
+std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 
 
 std::cout << "===== find =====" << std::endl << std::endl;
