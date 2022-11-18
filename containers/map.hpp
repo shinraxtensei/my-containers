@@ -89,8 +89,7 @@ namespace ft
 			_key_compare(comp),
 			_value_compare(value_compare(comp)),
 			_rbtree(_value_compare)
-		{
-		}
+		{}
 
 		/**
 		 * range (2)

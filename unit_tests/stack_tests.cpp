@@ -3,7 +3,6 @@
 
 int stack_unit_tests()
 {
-std::cout << "============================ THE TEST BEGINS  =======================" << std::endl;
 std::cout << "============================ STACK UNIT TESTS =======================" << std::endl;
 
 std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;

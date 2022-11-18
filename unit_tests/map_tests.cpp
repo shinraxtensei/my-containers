@@ -9,25 +9,33 @@ int map_unit_tests()
 	std::cout << YELLOW << "============================ 1 - CONSTRUCTORS =======================" << RESET << std::endl ;
 
 	std::cout << "===== Default constructor =====" << std::endl << std::endl;
+		srand(time(NULL)); // random seed to generate random numbers the does not repeat
 	
 	FT_START;
-	ft::map<char,int> ft_first;
-	for (int i = 0; i < 10 ; i++)	{ft_first[i] = i;}
+	ft::map<char , int> ft_first;
+	for ( int  i=  0; i < 10 ; i++) { ft_first.insert(ft::make_pair( 'a' + i ,  rand()% 100));}
+	for(ft::map<char,int>::iterator it = ft_first.begin() ; it != ft_first.end() ; it++) 
+		std::cout << CYAN << it->first <<  " => " << it->second << RESET << " |";
+	std::cout << std::endl;
 	FT_END;
 
 	STD_START;
-	std::map<char,int> std_first;
-	for (int i = 0; i < 10 ; i++)	{std_first[i] = i;}
+	std::map<char , int> std_first;
+	
+		for ( int  i=  0; i < 10 ; i++) { std_first.insert(std::make_pair( 'a' + i  ,  rand() % 100));}
+		for (std::map<char,int>::iterator it = std_first.begin(); it != std_first.end(); it++)
+			std::cout << MAGENTA << it->first << " => " << it->second  << RESET<< " |";
+		std::cout << std::endl;
 	STD_END;
+
 	std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 	COMPARE_TIMES;
 
-	std::cout <<   "\n===== Range constructor =====" << std::endl << std::endl;
 
+	std::cout <<   "\n===== Range constructor =====" << std::endl << std::endl;
 	FT_START;
 	ft::map<char,int> ft_second (ft_first.begin(),ft_first.end());
 	FT_END;
-
 	STD_START;
 	std::map<char,int> std_second (std_first.begin(),std_first.end());
 	STD_END;
@@ -214,7 +222,7 @@ int map_unit_tests()
 	sleep(1);
 	std::cout << YELLOW << "\n============================ 5 - MODIFIERS =======================" << RESET << std::endl ;
 
-	std::cout << "\n===== insert =====" << std::endl << std::endl;
+	std::cout << "\n===== insert =====" << std::endl;
 
 	FT_START;
 		std::cout << MAGENTA<< "\n\n== for FT ==" << RESET <<std::endl;
@@ -637,6 +645,4 @@ int map_unit_tests()
 	COMPARE_TIMES
 	
 return (0);
-
-
 }

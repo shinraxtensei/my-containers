@@ -14,7 +14,11 @@ std::cout << "===== Default constructor =====" << std::endl << std::endl;
 
 FT_START;
 ft::set<int> ft_set;
-for(int i = 0; i < 10; i++) {ft_set.insert(i);}
+for(int i = 0; i < 10; i++) {ft_set.insert(rand() % 100);}
+
+std::cout << std::endl;
+
+
 FT_END;
 
 STD_START;

@@ -6,7 +6,7 @@
 /*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 15:34:08 by ahouari           #+#    #+#             */
-/*   Updated: 2022/10/31 11:35:35 by ahouari          ###   ########.fr       */
+/*   Updated: 2022/11/05 10:49:01 by ahouari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -362,8 +362,7 @@ namespace ft
 
 		template <class InputIterator>
 		void assign (InputIterator first, InputIterator last,
-			typename ft::enable_if<!ft::is_integral<InputIterator>::value,
-			InputIterator>::type = InputIterator())
+			typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type = InputIterator())
 		{
 			clear();
 			size_type n = ft::distance(first, last);

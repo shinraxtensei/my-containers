@@ -1,5 +1,5 @@
 #include "unit_tests/tests.hpp"
-
+#include <iomanip>
 
 
 void loading()
@@ -8,7 +8,7 @@ void loading()
     std::string points= "...";
     for (int i = 0; i < 3; i++)
     {
-        std::cout << points.substr(0, i %3);
+        std::cout << points.substr(0, i % 3);
         std::cout.flush();
         sleep(1);
     }
@@ -18,15 +18,13 @@ void loading()
 
 void compare_times(double first, double second)
 {
-    std::string result;
     double ratio = first / second;
     if (ratio > 1)
-        result = "FT is " + std::to_string(ratio) + " times faster than STD";
+        std::cout << BLUE << "FT is " << std::fixed << std::setprecision(3) << ratio << " times faster than STD" << RESET << std::endl;
     else if (ratio < 1)
-        result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
+        std::cout <<BLUE << "STD is " << std::fixed << std::setprecision(3) << 1 / ratio << " times faster than FT" << RESET<< std::endl;
     else
-        result = "both are equal";
-    std::cout<< BLUE << result << RESET << std::endl;
+        std::cout << BLUE << "both are equal"<< RESET << std::endl;
 }
 
 
@@ -34,7 +32,7 @@ int main ()
 {
     std::cout << BLUE << "\n\n" <<  billboard << std::endl << std::endl;
   
-    while (69)
+    while (6969696969)
     {
 
         std::cout << GREEN << "\n\nchoose the container you want to test" << RESET << std::endl;
@@ -47,7 +45,6 @@ int main ()
         std::cout << "your choice: ";
         std::string choice;
         std::cin >> choice;
-
 
         switch (choice[0])
         {
@@ -83,5 +80,4 @@ int main ()
 
         }
     }
-
 }

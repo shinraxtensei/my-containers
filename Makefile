@@ -14,6 +14,9 @@ $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^
 	@printf "\n\t\033[1;34mCompilation successful\033[0m\n\n"
 
+run: $(NAME)
+	@ ./$(NAME)
+
 clean:
 	@rm -f $(OBJS) 
 
