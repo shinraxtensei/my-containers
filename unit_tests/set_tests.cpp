@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_tests.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/02 12:48:39 by ahouari           #+#    #+#             */
+/*   Updated: 2022/12/02 13:32:44 by ahouari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "tests.hpp"
 
@@ -14,11 +26,7 @@ std::cout << "===== Default constructor =====" << std::endl << std::endl;
 
 FT_START;
 ft::set<int> ft_set;
-for(int i = 0; i < 10; i++) {ft_set.insert(rand() % 100);}
-
-std::cout << std::endl;
-
-
+for(int i = 0; i < 10; i++) {ft_set.insert(i);}
 FT_END;
 
 STD_START;
@@ -269,6 +277,11 @@ std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
 COMPARE_TIMES;
 
 
+
+
+
+
+
 std::cout  << "===== erase a pos =====" <<RESET << std::endl << std::endl;
 
 FT_START;
@@ -383,12 +396,6 @@ COMPARE_TIMES;
 
 sleep(1);
 std::cout << YELLOW << "\n============================ 5 - OBSERVERS =======================" << RESET << std::endl ;
-
-std::cout << "===== key_comp =====" << std::endl << std::endl;
-std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
-std::cout << "===== value_comp =====" << std::endl << std::endl;
-std::cout << GREEN << "===== OK ====="  << RESET << std::endl;
-
 
 std::cout << "===== find =====" << std::endl << std::endl;
 

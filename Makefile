@@ -5,14 +5,19 @@ OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 
 
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) -o $@ $^
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@printf "\n\t\033[1;34mCompilation successful\033[0m\n\n"
+
+
+
+%.o: %.cpp 
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 run: $(NAME)
 	@ ./$(NAME)

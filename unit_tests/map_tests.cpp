@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_tests.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/02 12:48:32 by ahouari           #+#    #+#             */
+/*   Updated: 2022/12/02 12:48:34 by ahouari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+
 #include "tests.hpp"
 
 int map_unit_tests()
@@ -234,6 +248,7 @@ int map_unit_tests()
 	std::cout << "ft_second after insert contains:" << std::endl;
 	for (ft::map<char,int>::iterator it=ft_second.begin(); it!=ft_second.end(); ++it)
 		std::cout << it->first << " => " << it->second << std::endl;
+
 	// try to insert a key that already exists
 	std::cout << CYAN << "trying to insert the key (+ , 69) that already exists" << RESET << std::endl;
 	ft::pair<ft::map<char , int>::iterator , bool> ft_ret;
@@ -241,6 +256,7 @@ int map_unit_tests()
 	if (ft_ret.second == false)
 		std::cout << REDD << "+ already existed" <<RESET << std::endl;
 
+	
 	FT_END;
 
 	STD_START;
@@ -543,6 +559,10 @@ int map_unit_tests()
 	
 	std::cout << GREEN << "===== OK ====="  << std::endl;
 	COMPARE_TIMES
+
+
+
+
 
 
 	std::cout << "\n===== value_comp =====" << std::endl << std::endl;

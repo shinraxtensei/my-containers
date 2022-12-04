@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RB_tree.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/02 12:48:02 by ahouari           #+#    #+#             */
+/*   Updated: 2022/12/02 12:48:03 by ahouari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RB_TREE_HPP
 #define RB_TREE_HPP
 
@@ -125,6 +137,10 @@ namespace ft
 			DestroyNode(this->nil);
 		}
 
+
+
+
+
 		NodePointer	Search(NodePointer node, const KeyType &key) const
 		{
 			while (node)
@@ -202,8 +218,9 @@ namespace ft
 
 
 
-	
 
+
+	
 
 		void	Delete(NodePointer node)
 		{
@@ -211,40 +228,40 @@ namespace ft
 			NodePointer	sibling;
 			bool old_node_original_color;
 
-			old_node = node; // node to delete
-			old_node_original_color = old_node->color; // save color of node to delete
-			if (node->left == this->nil) // if node has no left chid
+			old_node = node;
+			old_node_original_color = old_node->color;
+			if (node->left == this->nil)
 			{
-				sibling = node->right; // save right child
-				Transplant(node, node->right); // replace node with right child
+				sibling = node->right;
+				Transplant(node, node->right);
 			}
-			else if (node->right == this->nil) // if node has no right child
+			else if (node->right == this->nil)
 			{
-				sibling = node->left; // save left child
-				Transplant(node, node->left); // replace node with left child
+				sibling = node->left;
+				Transplant(node, node->left);
 			}
-			else // if node has two children
-			{ 
-				old_node = Minimum(node->right); // find minimum of right subtree
-				old_node_original_color = old_node->color; // save color of minimum
-				sibling = old_node->right; // save right child of minimum
-				if (old_node->parent == node) // if minimum is right child of node
-					sibling->parent = old_node; // set parent of right child of minimum to minimum
-				else // if minimum is not right child of
+			else
+			{
+				old_node = Minimum(node->right);
+				old_node_original_color = old_node->color;
+				sibling = old_node->right;
+				if (old_node->parent == node)
+					sibling->parent = old_node;
+				else
 				{
-					Transplant(old_node, old_node->right); // replace minimum with right child of minimum
-					old_node->right = node->right; // set right child of minimum to right child of node
-					old_node->right->parent = old_node; // set parent of right child of minimum to minimum
+					Transplant(old_node, old_node->right);
+					old_node->right = node->right;
+					old_node->right->parent = old_node;
 				}
-				Transplant(node, old_node); // replace node with minimum
-				old_node->left = node->left; // set left child of minimum to left child of node
-				old_node->left->parent = old_node; // set parent of left child of minimum to minimum
-				old_node->color = node->color; // set color of minimum to color of node
+				Transplant(node, old_node);
+				old_node->left = node->left;
+				old_node->left->parent = old_node;
+				old_node->color = node->color;
 			}
 			this->size -= 1;
 			DestroyNode(node);
-			if (old_node_original_color == BLACK) // if color of node to delete was black
-				DeleteFixup(sibling); // fixup tree
+			if (old_node_original_color == BLACK)
+				DeleteFixup(sibling);
 		}
 
 		/**
@@ -274,6 +291,7 @@ namespace ft
 			while (child != this->nil)
 			{
 				child_cpy = child;
+	//			if (node->key < child->key)
 				if (this->comparator(node->key, child->key))
 					child = child->left;
 				else
@@ -482,62 +500,64 @@ namespace ft
 		{
 			NodePointer	sibling;
 
-			while (node != this->root && node->color == BLACK) // while node is not the root and is black
+			while (node != this->root && node->color == BLACK)
 			{
-				if (node == node->parent->left) // if node is the left child of its parent
+				if (node == node->parent->left)
 				{
-					sibling = node->parent->right; // get the sibling
-					if (sibling->color == RED) // if the sibling is red
+					sibling = node->parent->right;
+					if (sibling->color == RED)
 					{
-						sibling->color = BLACK; 
-						node->parent->color = RED; 
-						LeftRotate(node->parent); 
-						sibling = node->parent->right; 
+						sibling->color = BLACK;
+						node->parent->color = RED;
+						LeftRotate(node->parent);
+						sibling = node->parent->right;
 					}
-					if (sibling->left->color == BLACK && sibling->right->color == BLACK) // if the sibling's children are black
-					{
-						sibling->color = RED; 
-						node = node->parent; 
-					}
-					else if (sibling->right->color == BLACK) // if the sibling's right child is black
-					{
-							sibling->left->color = BLACK; 
-							sibling->color = RED; 
-							RightRotate(sibling); 
-							sibling = node->parent->right; 
-					}
-					else // if the sibling's right child is red
-					{
-						sibling->color = node->parent->color;
-						node->parent->color = BLACK;
-						sibling->right->color = BLACK; 
-						LeftRotate(node->parent); 
-						node = this->root; 
-					}
-				}
-				else // if node is the right child of its parent
-				{
-					sibling = node->parent->left; // get the sibling
-					if (sibling->color == RED) // if the sibling is red
-					{
-						sibling->color = BLACK; // change the color of the sibling to black
-						node->parent->color = RED; 
-						RightRotate(node->parent); 
-						sibling = node->parent->left;
-					}
-					if (sibling->right->color == BLACK && sibling->left->color == BLACK) // if the sibling's children are black
+					if (sibling->left->color == BLACK
+					&& sibling->right->color == BLACK)
 					{
 						sibling->color = RED;
 						node = node->parent;
 					}
-					else if (sibling->left->color == BLACK) // if the sibling's left child is black
+					else if (sibling->right->color == BLACK)
+					{
+							sibling->left->color = BLACK;
+							sibling->color = RED;
+							RightRotate(sibling);
+							sibling = node->parent->right;
+					}
+					else
+					{
+						sibling->color = node->parent->color;
+						node->parent->color = BLACK;
+						sibling->right->color = BLACK;
+						LeftRotate(node->parent);
+						node = this->root;
+					}
+				}
+				else
+				{
+					sibling = node->parent->left;
+					if (sibling->color == RED)
+					{
+						sibling->color = BLACK;
+						node->parent->color = RED;
+						RightRotate(node->parent);
+						sibling = node->parent->left;
+					}
+					if (sibling->right->color == BLACK
+					&& sibling->left->color == BLACK)
+					{
+						sibling->color = RED;
+						node = node->parent;
+					}
+					else if (sibling->left->color == BLACK)
 					{
 						sibling->right->color = BLACK;
 						sibling->color = RED;
 						LeftRotate(sibling);
 						sibling = node->parent->left;
 					}
-					else // if the sibling's left child is red
+					else
 					{
 						sibling->color = node->parent->color;
 						node->parent->color = BLACK;
@@ -557,7 +577,7 @@ namespace ft
 		void	LeftRotate(NodePointer node)
 		{
 			NodePointer	sibling;
-// node is x , sibling is y
+
 			sibling = node->right;
 			node->right = sibling->left;
 			if (sibling->left != this->nil)
@@ -566,7 +586,7 @@ namespace ft
 			if (node->parent == this->nil)
 				this->root = sibling;
 			else if (node == node->parent->left)
-				node->parent->left = sibling; 
+				node->parent->left = sibling;
 			else
 				node->parent->right = sibling;
 			sibling->left = node;
@@ -601,7 +621,7 @@ namespace ft
 		 */
 
 		void	InsertFixup(NodePointer node)
-			{
+		{
 			NodePointer parents_sibling;
 
 			while (node->parent->color == RED)
@@ -653,65 +673,6 @@ namespace ft
 			}
 			this->root->color = BLACK;
 		}
-
-
-		// void	InsertFixup(NodePointer node)
-		// {
-		// 	NodePointer	parent;
-		// 	NodePointer	grandparent;
-		// 	NodePointer	uncle;
-
-		// 	while (node->parent->color == RED)
-		// 	{
-		// 		parent = node->parent;
-		// 		grandparent = parent->parent;
-		// 		if (parent == grandparent->left)
-		// 		{
-		// 			uncle = grandparent->right;
-		// 			if (uncle->color == RED)
-		// 			{
-		// 				parent->color = BLACK;
-		// 				uncle->color = BLACK;
-		// 				grandparent->color = RED;
-		// 				node = grandparent;
-		// 			}
-		// 			else
-		// 			{
-		// 				if (node == parent->right)
-		// 				{
-		// 					node = parent;
-		// 					LeftRotate(node);
-		// 				}
-		// 				parent->color = BLACK;
-		// 				grandparent->color = RED;
-		// 				RightRotate(grandparent);
-		// 			}
-		// 		}
-		// 		else
-		// 		{
-		// 			uncle = grandparent->left;
-		// 			if (uncle->color == RED)
-		// 			{
-		// 				parent->color = BLACK;
-		// 				uncle->color = BLACK;
-		// 				grandparent->color = RED;
-		// 				node = grandparent;
-		// 			}
-		// 			else
-		// 			{
-		// 				if (node == parent->left)
-		// 				{
-		// 					node = parent;
-		// 					RightRotate(node);
-		// 				}
-		// 				parent->color = BLACK;
-		// 				grandparent->color = RED;
-		// 				LeftRotate(grandparent);
-		// 			}
-		// 		}
-		// 	}
-		// 	this->root->color = BLACK;
-		// }
 
 		/**
 		 * Create new node

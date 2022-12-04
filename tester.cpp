@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tester.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahouari <ahouari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/02 12:48:53 by ahouari           #+#    #+#             */
+/*   Updated: 2022/12/02 13:30:32 by ahouari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "unit_tests/tests.hpp"
-#include <iomanip>
+
 
 
 void loading()
@@ -8,7 +20,7 @@ void loading()
     std::string points= "...";
     for (int i = 0; i < 3; i++)
     {
-        std::cout << points.substr(0, i % 3);
+        std::cout << points.substr(0, i %3);
         std::cout.flush();
         sleep(1);
     }
@@ -18,21 +30,24 @@ void loading()
 
 void compare_times(double first, double second)
 {
+    std::string result;
     double ratio = first / second;
     if (ratio > 1)
-        std::cout << BLUE << "FT is " << std::fixed << std::setprecision(3) << ratio << " times faster than STD" << RESET << std::endl;
+        result = "FT is " + std::to_string(ratio) + " times faster than STD";
     else if (ratio < 1)
-        std::cout <<BLUE << "STD is " << std::fixed << std::setprecision(3) << 1 / ratio << " times faster than FT" << RESET<< std::endl;
+        result = "STD is " + std::to_string(1 / ratio) + " times faster than FT";
     else
-        std::cout << BLUE << "both are equal"<< RESET << std::endl;
+        result = "both are equal";
+    std::cout<< BLUE << result << RESET << std::endl;
 }
 
 
 int main ()
 {
     std::cout << BLUE << "\n\n" <<  billboard << std::endl << std::endl;
+    
   
-    while (6969696969)
+    while (69)
     {
 
         std::cout << GREEN << "\n\nchoose the container you want to test" << RESET << std::endl;
@@ -45,6 +60,7 @@ int main ()
         std::cout << "your choice: ";
         std::string choice;
         std::cin >> choice;
+
 
         switch (choice[0])
         {
@@ -80,4 +96,5 @@ int main ()
 
         }
     }
+
 }
