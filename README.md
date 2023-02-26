@@ -30,8 +30,7 @@
     <p>
       This project includes unit tests for each of the containers. These tests
       ensure that the containers are functioning correctly and produce the
-      expected output. To run the unit tests, type <code>make test</code> in the
-      root directory.
+      expected output.
     </p>
     <h2>Notion Guide</h2>
     <p>
@@ -39,7 +38,7 @@
       guide,i also created a Notion guide titled
       "THE ULTIMATE GUIDE to STL Containers for Dummies". This guide covers the
       basics of STL containers, their common use cases, and advanced topics like
-      iterators and algorithms. You can access the guide at the following link:
+      iterators and algorithms. You can access the guide at the following link:</br>
       <a href="https://www.notion.so/containersfordummies/THE-ULTIMATE-GUIDE-e7f20768377544409ca8d036b1ab9b7f">
         https://www.notion.so/containersfordummies/THE-ULTIMATE-GUIDE-e7f20768377544409ca8d036b1ab9b7f
       </a>.
