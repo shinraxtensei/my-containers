@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>STL Container Recreation with Iterators</title>
-  </head>
-  <body>
+#my::containers
     <h1>STL Container Recreation with Iterators</h1>
     <p>
       This project is a recreation of the C++ Standard Template Library (STL)
@@ -11,7 +6,6 @@
       In addition to the containers and iterators, this project also includes
       some useful utilities like is_integral, enable_if, and iterator_traits.
     </p>
-
     <h2>Motivation</h2>
     <p>
       The STL containers and iterators are a fundamental part of modern C++
@@ -21,7 +15,6 @@
       some useful utilities that can make generic programming easier and more
       efficient.
     </p>
-
     <h2>Usage</h2>
     <p>
       To use this project, simply clone the repository and navigate to the root
@@ -29,13 +22,11 @@
       create a binary file named <code>main</code> in the root directory. To run
       the program, type <code>./main</code>.
     </p>
-
     <p>
       The program included in this project demonstrates the usage of the vector
       container and its iterators. You can modify the program to test out the
       other containers and utilities included in the project.
     </p>
-
     <h2>Unit Tests</h2>
     <p>
       This project includes unit tests for each of the containers. These tests
@@ -43,7 +34,6 @@
       expected output. To run the unit tests, type <code>make test</code> in the
       root directory.
     </p>
-
     <h2>Notion Guide</h2>
     <p>
       For those who are new to STL containers or are looking for a comprehensive
@@ -55,11 +45,8 @@
         https://www.notion.so/containersfordummies/THE-ULTIMATE-GUIDE-e7f20768377544409ca8d036b1ab9b7f
       </a>.
     </p>
-
     <h2>License</h2>
     <p>
       This project is licensed under the MIT License - see the LICENSE file for
       details.
     </p>
-  </body>
-</html>
