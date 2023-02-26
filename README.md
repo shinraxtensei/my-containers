@@ -1,5 +1,4 @@
-#my::containers
-    <h1>STL Container Recreation with Iterators</h1>
+# my::containers
     <p>
       This project is a recreation of the C++ Standard Template Library (STL)
       containers - vector, stack, map, and set - with their own custom iterators.
