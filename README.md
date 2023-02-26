@@ -1,5 +1,5 @@
-# my::containers
-    <p>
+# MY::containers
+   <p>
       This project is a recreation of the C++ Standard Template Library (STL)
       containers - vector, stack, map, and set - with their own custom iterators.
       In addition to the containers and iterators, this project also includes
