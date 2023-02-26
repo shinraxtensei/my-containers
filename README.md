@@ -1,5 +1,5 @@
+#STL Container Recreation with Iterators
 
-	<h1>STL Container Recreation with Iterators</h1>
 	<p>This project is a recreation of the C++ Standard Template Library (STL) containers - vector, stack, map, and set - with their own custom iterators. In addition to the containers and iterators, this project also includes some useful utilities like is_integral, enable_if, and iterator_traits.</p>
 <h2>Motivation</h2>
 <p>The STL containers and iterators are a fundamental part of modern C++ programming. By recreating them from scratch, this project aims to provide a deeper understanding of how these data structures work and how they can be customized to fit specific use cases. Additionally, the project introduces some useful utilities that can make generic programming easier and more efficient.</p>
